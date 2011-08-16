@@ -38,7 +38,7 @@ class AutocompleterDataTransformer implements DataTransformerInterface
         $results = array();
         $values = \explode(',', $value);
         foreach ($values as $val) {
-            if (!empty(\trim($val))) {
+            if (\trim($val)!== '') {
                 $results[] = $val;
             }
         }

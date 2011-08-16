@@ -9,7 +9,7 @@ use Symfony\Component\Form\FormView;
 use Symfony\Component\Form\Exception\FormException;
 use Symfony\Component\Form\DataTransformerInterface;
 
-use Rizeway\FormBundle\DataTransform\AutocompleterDataTransformer;
+use Rizeway\FormBundle\Form\DataTransform\AutocompleterDataTransformer;
 /**
  * JQueryAutocompleterType
  *
@@ -43,7 +43,9 @@ class JQueryUIAutocompleterType extends AbstractType
      */
     public function buildView(FormView $view, FormInterface $form)
     {
-        $view->set('value', $form->getClientData());
+        $view
+            ->set('value', $form->getClientData())
+            ->set('url', $form->getAttribute('url'));
     }
 
     /**
