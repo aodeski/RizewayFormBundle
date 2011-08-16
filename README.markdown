@@ -28,10 +28,8 @@ Installation
         );
     }
 
-Types
------
-
-## Rizeway Autocompleter Type
+Rizeway Autocompleter Type
+--------------------------
 This type allow you to add autocomplete fields that accept multiple values (Example: tags)
 
 ### Who to use it ?
@@ -40,7 +38,7 @@ This type allow you to add autocomplete fields that accept multiple values (Exam
 ));
 
 ### Options
-The type have a "value_transformer" option. By default, the dataTransformer used
+The type have a ``value_transformer`` option. By default, the dataTransformer used
 transforms the input values separated by ',' to an array of values.
 
 You can write your own transform for example to get an ArrayCollection of Entities.
@@ -54,4 +52,4 @@ assets to make it work.
 TODO
 ----
 
- - allow personal configuration of the jqueryplugin, (like simple values, choices ...)
+ - allow personal configuration of the jQueryUI plugin, (like simple values, choices ...)
