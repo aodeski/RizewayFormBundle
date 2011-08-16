@@ -32,7 +32,7 @@ Rizeway Autocompleter Type
 --------------------------
 This type allow you to add autocomplete fields that accept multiple values (Example: tags)
 
-### Who to use it ?
+### How to use it ?
     $builder->add('tags', 'rizeway_tinymce', array(
         'url' => '/tags/get',
     ));
