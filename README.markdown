@@ -35,7 +35,7 @@ This type allow you to add autocomplete fields that accept multiple values (Exam
 ### Who to use it ?
     $builder->add('tags', 'rizeway_tinymce', array(
         'url' => '/tags/get',
-));
+    ));
 
 ### Options
 The type have a ``value_transformer`` option. By default, the dataTransformer used
