@@ -1,10 +1,10 @@
-{% block rizeway_autocompleter_widget %}
+{% block rizeway_jqueryui_autocompleter_widget %}
     {{ block('hidden_widget') }}
 
     {% set id = 'autocompleter_' ~ id %}
     {{ block('field_widget') }}
     
-    <script type="text/javascript">
+    <script>
         jQuery(document).ready(function() {
             
             function rizeway_split( val ) {
@@ -56,4 +56,19 @@
             
         });
     </script>
-{% endblock rizeway_autocompleter_widget %}
+{% endblock rizeway_jqueryui_autocompleter_widget %}
+
+{% block rizeway_smarttextbox_autocompleter_widget %}
+    {% set id = 'autocompleter_' ~ id %}
+    {{ block('field_widget') }}
+    <script>
+        jQuery(document).ready(function() {
+            $("#{{id}}").smartTextBox({
+                autocomplete: true,
+                separator: ',',
+                autocompleteUrl: '{{url}}',
+                maxResults: 10
+            });    
+        });
+    </script>
+{% endblock rizeway_smarttextbox_autocompleter_widget %}

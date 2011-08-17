@@ -16,7 +16,7 @@ use Rizeway\FormBundle\Form\DataTransform\AutocompleterDataTransformer;
  *
  * @author Riad Benguella 
  */
-class JQueryUIAutocompleterType extends AutocompleterType
+class SmartTextboxAutocompleterType extends AutocompleterType
 {
 
     /**
@@ -24,6 +24,6 @@ class JQueryUIAutocompleterType extends AutocompleterType
      */
     public function getName()
     {
-        return 'rizeway_jqueryui_autocompleter';
+        return 'rizeway_smarttextbox_autocompleter';
     }
 }

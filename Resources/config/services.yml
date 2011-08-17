@@ -1,5 +1,11 @@
 services:
-    rizeway_autocompleter.form.type:
+  
+    rizeway_jqueryui_autocompleter.form.type:
         class: Rizeway\FormBundle\Form\Type\JQueryUIAutocompleterType
         tags:
-            -  { name: form.type, alias: rizeway_autocompleter }
+            -  { name: form.type, alias: rizeway_jqueryui_autocompleter }
+
+    rizeway_smarttextbox_autocompleter.form.type:
+        class: Rizeway\FormBundle\Form\Type\SmartTextboxAutocompleterType
+        tags:
+            -  { name: form.type, alias: rizeway_smarttextbox_autocompleter }
