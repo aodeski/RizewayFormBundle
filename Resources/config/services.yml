@@ -5,7 +5,7 @@ services:
         tags:
             -  { name: form.type, alias: rizeway_jqueryui_autocompleter }
 
-    rizeway_smarttextbox_autocompleter.form.type:
-        class: Rizeway\FormBundle\Form\Type\SmartTextboxAutocompleterType
+    rizeway_xoxco_autocompleter.form.type:
+        class: Rizeway\FormBundle\Form\Type\XoxcoAutocompleterType
         tags:
-            -  { name: form.type, alias: rizeway_smarttextbox_autocompleter }
+            -  { name: form.type, alias: rizeway_xoxco_autocompleter }

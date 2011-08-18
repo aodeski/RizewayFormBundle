@@ -58,17 +58,17 @@
     </script>
 {% endblock rizeway_jqueryui_autocompleter_widget %}
 
-{% block rizeway_smarttextbox_autocompleter_widget %}
+{% block rizeway_xoxco_autocompleter_widget %}
     {% set id = 'autocompleter_' ~ id %}
     {{ block('field_widget') }}
     <script>
         jQuery(document).ready(function() {
-            $("#{{id}}").smartTextBox({
-                autocomplete: true,
-                separator: ',',
-                autocompleteUrl: '{{url}}',
-                maxResults: 10
+            $("#{{id}}").tagsInput({
+                autocomplete_url: '{{url}}',
+                autocomplete: {selectFirst:false, autoFill:false},
+                unique: true,
+                height: 'inherit',
             });    
         });
     </script>
-{% endblock rizeway_smarttextbox_autocompleter_widget %}
+{% endblock rizeway_xoxco_autocompleter_widget %}

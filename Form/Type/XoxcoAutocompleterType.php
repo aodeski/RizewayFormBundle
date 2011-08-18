@@ -12,11 +12,11 @@ use Symfony\Component\Form\DataTransformerInterface;
 use Rizeway\FormBundle\Form\DataTransform\AutocompleterDataTransformer;
 
 /**
- * JQueryAutocompleterType
+ * XoxcoAutocompleterType
  *
  * @author Riad Benguella 
  */
-class SmartTextboxAutocompleterType extends AutocompleterType
+class XoxcoAutocompleterType extends AutocompleterType
 {
 
     /**
@@ -24,6 +24,6 @@ class SmartTextboxAutocompleterType extends AutocompleterType
      */
     public function getName()
     {
-        return 'rizeway_smarttextbox_autocompleter';
+        return 'rizeway_xoxco_autocompleter';
     }
 }
