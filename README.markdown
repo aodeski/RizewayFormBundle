@@ -28,14 +28,21 @@ Installation
         );
     }
 
-Rizeway Autocompleter Type
+Rizeway Autocompleter Types
 --------------------------
-This type allow you to add autocomplete fields that accept multiple values (Example: tags)
+These types allow you to add autocomplete fields that accept multiple values (Example: tags)
 
-### Who to use it ?
-    $builder->add('tags', 'rizeway_tinymce', array(
+### How to use it ?
+    $builder->add('tags', 'rizeway_jqueryui_autocompleter', array(
         'url' => '/tags/get',
-));
+    ));
+or
+    $builder->add('tags', 'rizeway_smarttextbox_autocompleter', array(
+        'url' => '/tags/get',
+    ));
+
+the ``rizeway_jqueryui_autocompleter`` type is based on the [jQueryUI Autocomplete Widget](http://jqueryui.com/demos/autocomplete/)
+the ``rizeway_smarttextbox_autocompleter`` type is based on the [SmartTextBox Widget](http://plugins.jquery.com/project/smarttextbox)
 
 ### Options
 The type have a ``value_transformer`` option. By default, the dataTransformer used
@@ -43,13 +50,3 @@ transforms the input values separated by ',' to an array of values.
 
 You can write your own transform for example to get an ArrayCollection of Entities.
 
-More information
-----------------
-
-This bundle is based on the JqueryUIAutocompleter Widget, you need to install the
-assets to make it work.
-
-TODO
-----
-
- - allow personal configuration of the jQueryUI plugin, (like simple values, choices ...)
