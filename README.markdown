@@ -2,7 +2,9 @@ RizewayFormBundle - Extra Form Types for Symfony2
 =================================================
 
 The ``RizewayFormBundle`` offers new Form Types for your Symfony2 Project
- - rizeway_autocompleter
+
+ - rizeway_jqueryui_autocompleter
+ - rizeway_smarttextbox_autocompleter
 
 Installation
 ------------
@@ -33,15 +35,19 @@ Rizeway Autocompleter Types
 These types allow you to add autocomplete fields that accept multiple values (Example: tags)
 
 ### How to use it ?
+
     $builder->add('tags', 'rizeway_jqueryui_autocompleter', array(
         'url' => '/tags/get',
     ));
+
 or
+
     $builder->add('tags', 'rizeway_smarttextbox_autocompleter', array(
         'url' => '/tags/get',
     ));
 
 the ``rizeway_jqueryui_autocompleter`` type is based on the [jQueryUI Autocomplete Widget](http://jqueryui.com/demos/autocomplete/)
+
 the ``rizeway_smarttextbox_autocompleter`` type is based on the [SmartTextBox Widget](http://plugins.jquery.com/project/smarttextbox)
 
 ### Options
