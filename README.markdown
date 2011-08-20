@@ -3,6 +3,7 @@ RizewayFormBundle - Extra Form Types for Symfony2
 
 The ``RizewayFormBundle`` offers new Form Types for your Symfony2 Project
 
+ - rizeway_autocompleter
  - rizeway_jqueryui_autocompleter
  - rizeway_xoxco_autocompleter
 
@@ -44,6 +45,13 @@ or
 
     $builder->add('tags', 'rizeway_xoxco_autocompleter', array(
         'url' => '/tags/get',
+    ));
+
+or
+
+    $builder->add('tags', 'rizeway_autocompleter', array(
+        'url' => '/tags/get',
+        'must_match' => true
     ));
 
 the ``rizeway_jqueryui_autocompleter`` type is based on the [jQueryUI Autocomplete Widget](http://jqueryui.com/demos/autocomplete/)

@@ -37,6 +37,7 @@ abstract class AutocompleterType extends AbstractType
         }
         
         $builder->setAttribute('url', $options['url']);
+        $builder->setAttribute('must_match', $options['must_match']);
     }
 
     /**
@@ -46,7 +47,8 @@ abstract class AutocompleterType extends AbstractType
     {
         $view
             ->set('value', $form->getClientData())
-            ->set('url', $form->getAttribute('url'));
+            ->set('url', $form->getAttribute('url'))
+            ->set('must_match', $form->getAttribute('must_match'));
     }
 
     /**
@@ -56,7 +58,8 @@ abstract class AutocompleterType extends AbstractType
     {
         return array(
             'url' => null,
-            'value_transformer' => new AutocompleterDataTransformer() 
+            'value_transformer' => new AutocompleterDataTransformer(),
+            'must_match' => false
         );
     }
 

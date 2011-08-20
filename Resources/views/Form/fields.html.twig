@@ -72,3 +72,15 @@
         });
     </script>
 {% endblock rizeway_xoxco_autocompleter_widget %}
+
+{% block rizeway_autocompleter_widget %}
+    {% set id = 'autocompleter_' ~ id %}
+    {{ block('field_widget') }}
+    <script>
+        var field = new RizewayAutocompleter($('#{{id}}'), {
+           url: "{{ url }}",
+           mustMatch: {{ must_match ? 'true' : 'false' }},
+           values: {{value|raw}} 
+        });
+    </script>
+{% endblock %}

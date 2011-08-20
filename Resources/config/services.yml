@@ -9,3 +9,8 @@ services:
         class: Rizeway\FormBundle\Form\Type\XoxcoAutocompleterType
         tags:
             -  { name: form.type, alias: rizeway_xoxco_autocompleter }
+            
+    rizeway_autocompleter.form.type:
+        class: Rizeway\FormBundle\Form\Type\RizewayAutocompleterType
+        tags:
+            -  { name: form.type, alias: rizeway_autocompleter }
