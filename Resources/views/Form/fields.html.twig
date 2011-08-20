@@ -77,7 +77,7 @@
     {% set id = 'autocompleter_' ~ id %}
     {{ block('field_widget') }}
     <script>
-        var field = new RizewayAutocompleter($('#{{id}}'), {
+        var field_{{ id }} = new RizewayAutocompleter($('#{{id}}'), {
            url: "{{ url }}",
            mustMatch: {{ must_match ? 'true' : 'false' }},
            values: {{value|raw}} 

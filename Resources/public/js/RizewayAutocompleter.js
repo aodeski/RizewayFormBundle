@@ -6,31 +6,28 @@ var RizewayAutocompleter = function(input, options) {
         values: []
     }, options);
     
-    var _view = new RizewayAutocompleterView(this, _options);
-    _view.init(input);
-    
-}
-
-RizewayAutocompleter.prototype.values = {};
-RizewayAutocompleter.prototype.addValue = function(value, label) {
-    this.values[value] = label;
-};
-RizewayAutocompleter.prototype.getValues = function() {
-    return this.values
-};
-RizewayAutocompleter.prototype.removeValue = function(value) {
-    if (this.values[value] !== undefined) {
-        delete this.values[value];
-    }
-};
-
-var RizewayAutocompleterView = function(controller, options) {
-
-    var _controller = controller;
     var _list;
     var _result_input;
     var _new_input;
-    var _options = options;
+    var _values = {};
+    
+    var addValue = function(value, label) {
+        _values[value] = label;
+    };
+    
+    var removeValue = function(value) {
+        if (_values[value] !== undefined) {
+            delete _values[value];
+        }
+    };
+    
+    var valueExists = function(value) {
+        if (_values[value] !== undefined) {
+           return true;
+        }
+        
+        return false;
+    };
     
     var initNewItemInput = function(focus) {
         
@@ -81,8 +78,8 @@ var RizewayAutocompleterView = function(controller, options) {
     }
     
     var addNewItem = function(item, ignore_autocomplete) {
-        if ($.trim(item.id)) {
-            _controller.addValue(item.id, item.label); 
+        if ($.trim(item.id) && !valueExists(item.id)) {
+            addValue(item.id, item.label); 
             var elm = $('<li>'+ item.label +'<a class="rizeway_delete_item" href="'+item.id+'">X</a></li>')
             elm.insertBefore(_list.find('.rizeway_new_item'));
             elm.find('.rizeway_delete_item').click(function(e){
@@ -98,43 +95,42 @@ var RizewayAutocompleterView = function(controller, options) {
     
     var deleteItem = function(elm) {
         var value =  elm.find('.rizeway_delete_item').attr('href');
-        _controller.removeValue(value);
+        removeValue(value);
         elm.remove();
         updateHiddenValue();
     }
     
     var updateHiddenValue = function() {
         var values = new Array();
-        for (val in _controller.getValues()) {
+        for (val in _values) {
             values.push(val); 
         }
         
         _result_input.attr('value', values.join(_options.separator));
     }
     
-    return {
-        init: function(input) {
-            
-            // Create The list
-            _list = $('<ul class="rizeway_autocomplter_results"></ul>');
-            _list.insertBefore(input)
-            
-            // Create The hidden input
-            _result_input = $('<input type="hidden" name="'+$(input).attr('name')+'" />');
-            _result_input.insertBefore(input);
-            
-            // Initialize the autocomplete input
-            initNewItemInput();
-            
-            // Ajouter les valeurs initiales
-            for (val in _options.values)
-            {
-                addNewItem(_options.values[val], true);
-            }
-            
-            // Delete original input
-            $(input).remove();
+    var initView = function(input) {
+        // Create The list
+        _list = $('<ul class="rizeway_autocomplter_results"></ul>');
+        _list.insertBefore(input)
+
+        // Create The hidden input
+        _result_input = $('<input type="hidden" name="'+$(input).attr('name')+'" />');
+        _result_input.insertBefore(input);
+
+        // Initialize the autocomplete input
+        initNewItemInput();
+
+        // Ajouter les valeurs initiales
+        for (val in _options.values)
+        {
+            addNewItem(_options.values[val], true);
         }
+
+        // Delete original input
+        $(input).remove();
     }
     
+    initView(input);
+     
 }
