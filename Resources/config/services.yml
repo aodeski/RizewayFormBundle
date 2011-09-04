@@ -14,3 +14,8 @@ services:
         class: Rizeway\FormBundle\Form\Type\RizewayAutocompleterType
         tags:
             -  { name: form.type, alias: rizeway_autocompleter }
+
+    rizeway_tinymce.form.type:
+        class: Rizeway\FormBundle\Form\Type\TinymceType
+        tags:
+            -  { name: form.type, alias: rizeway_tinymce }

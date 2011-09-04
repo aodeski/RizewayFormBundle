@@ -3,6 +3,7 @@ RizewayFormBundle - Extra Form Types for Symfony2
 
 The ``RizewayFormBundle`` offers new Form Types for your Symfony2 Project
 
+ - rizeway_tinymce
  - rizeway_autocompleter
  - rizeway_jqueryui_autocompleter
  - rizeway_xoxco_autocompleter
@@ -32,7 +33,7 @@ Installation
     }
 
 Rizeway Autocompleter Types
---------------------------
+---------------------------
 These types allow you to add autocomplete fields that accept multiple values (Example: tags)
 
 ### How to use it ?
@@ -64,3 +65,8 @@ transforms the input values separated by ',' to an array of values.
 
 You can write your own transform for example to get an ArrayCollection of Entities.
 
+
+Rizeway TinyMce Type
+--------------------
+
+    $builder->add('content', 'rizeway_tinymce');
